@@ -7,8 +7,8 @@ This script generates the layout for an interdigitated capacitor based on user-d
 The generated layout is saved in a KiCad footprint file in the ./idc.pretty directory.
 
 Usage:
-    ./capGen.py -h
-    ./capGen.py --modulename <name> --trackWidth <width> --gap <gap> --totalWidth <totalWidth> --numFingers <numFingers>
+    python3 idcGen.py -h
+    python3 idcGen.py --modulename <name> --trackWidth <width> --gap <gap> --totalWidth <totalWidth> --numFingers <numFingers>
 
 Output file path:
     ./idc.pretty/
@@ -54,9 +54,13 @@ def idcGen(modulename, trackWidth, gap, totalWidth, numFingers, layer='F.Cu', co
     # Add connecting tracks
     mod += "  (fp_rect (start %f %f) (end %f %f) (layer F.Cu))\n" % (
         0, 0, connectingTrackWidth, totalHeight)
+    mod += "  (pad 1 smd rect (at %f %f) (size %f %f) (layers F.Cu))\n" % (
+        connectingTrackWidth/2, -connectingTrackWidth/2, connectingTrackWidth, connectingTrackWidth)
     mod += "  (fp_rect (start %f %f) (end %f %f) (layer F.Cu))\n" % (
         totalWidth - connectingTrackWidth, 0, totalWidth, totalHeight)
-
+    mod += "  (pad 2 smd rect (at %f %f) (size %f %f) (layers F.Cu))\n" % (
+        totalWidth-connectingTrackWidth/2, -connectingTrackWidth/2, connectingTrackWidth, connectingTrackWidth)
+    
     # Add fingers
     for n in range(numFingers):
         posX = connectingTrackWidth + (n % 2) * gap
