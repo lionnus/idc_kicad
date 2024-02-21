@@ -1,9 +1,9 @@
-# Interdigitated Capacitor Generator
+# Interdigitated Capacitor Layout Generator for KiCad
 
 This Python script automates the generation of interdigitated capacitor (IDC) layouts for use in KiCad PCB designs. It allows for quick and customizable creation of capacitor layouts based on user-defined dimensions and parameters.
 
 #### Parameters:
-The IDC can be generated from following parameters, also seen in the figure below.
+The IDC can be generated from the following parameters, also seen in the figure below.
 
 - `-m`, `--modulename`: Name of the generated capacitor module.
 - `-t`, `--trackWidth`: Width of each track/finger in mm.
