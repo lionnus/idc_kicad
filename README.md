@@ -5,12 +5,13 @@ This Python script automates the generation of interdigitated capacitor (IDC) la
 #### Parameters:
 The IDC can be generated from the following parameters, also seen in the figure below.
 
-- `-m`, `--modulename`: Name of the generated capacitor module.
-- `-t`, `--trackWidth`: Width of each track/finger in mm.
-- `-g`, `--gap`: Gap between tracks/fingers in mm.
-- `-w`, `--totalWidth`: Total width of the capacitor in mm.
-- `-n`, `--numFingers`: Number of fingers/tracks.
-- `-c`, `--connectingTrackWidth`: Width of the connecting horizontal tracks in mm (optional).
+- `--modulename`: Name of the generated capacitor module.
+- `--trackWidth`: Width of each track/finger in mm.
+- `--gap`: Gap between tracks/fingers in mm.
+- `--totalWidth`: Total width of the capacitor in mm.
+- `--fingerLength`: Length of the fingers in mm. Overrides the totalWidth parameter (optional).
+- `--numFingers`: Number of fingers/tracks.
+- `--connectingTrackWidth`: Width of the connecting horizontal tracks in mm (optional).
 
 <img src="docs/parameter_overview.png" alt="IDC Dimensions" title="Interdigitated Capacitor Dimensions" width="80%"/>
 
@@ -29,7 +30,7 @@ To use this script, you'll need Python 3 installed on your machine. Clone or dow
 Run the script from the command line with the required parameters. Here is an example command:
 
 ```bash
-python3 idcGen.py --modulename idc --trackWidth 0.8 --gap 0.5 --totalWidth 15 --numFingers 40 --connectingTrackWidth 0.8
+python3 idcGen.py --modulename idc --trackWidth 0.8 --gap 0.5 --fingerWidth 15 --numFingers 40 --connectingTrackWidth 0.8
 ```
 
 ## Understanding the `.kicad_mod` File Format
